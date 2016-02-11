@@ -51,8 +51,13 @@ function addSignatureParams(f) {
     var params = f.params ? f.params : [];
     var args = [];
     var optional = null;
+    var old_param = null;
 
     params.forEach(function(param){
+        if (param.name.split('.')[0] === old_param) {
+            return;
+        }
+        old_param = param.name.split('.')[0];
 
         if(param.optional){
             optional = optional || [];
