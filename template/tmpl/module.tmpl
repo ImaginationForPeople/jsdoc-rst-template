@@ -8,9 +8,6 @@ heading = data.name + '\n' +
 
 if(data.description){
     heading = heading + '\n\n' +
-    '.. code-block:: js\n\n' +
-    self.tab + 'var module = require(\'' + data.qualname.split('.').join('/') + '\')' +
-    '\n\n' +
     data.description + '\n\n'
 }
 ?>

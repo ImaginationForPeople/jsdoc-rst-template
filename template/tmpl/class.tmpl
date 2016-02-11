@@ -19,8 +19,6 @@ var importSig = '.. code-block:: js\n\n' + self.tab +
 .. class:: <?js= obj.name ?> <?js= obj.signature ?>
 
 <?js
-print(self.formatTextWithTabs(importSig, tabs) + '\n\n');
-
 if(description){
     print(self.formatTextWithTabs(description, tabs) + '\n\n');
 }
