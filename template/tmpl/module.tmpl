@@ -1,10 +1,14 @@
 <?js
 var self = this;
 var data = obj.docs;
-var heading;
+var heading, module;
 
 heading = data.name + '\n' +
           this.repeat('=', data.name.length)
+module = data.qualname.split('.');
+module.pop();
+module = module.join('.');
+
 
 if(data.description){
     heading = heading + '\n\n' +
@@ -14,7 +18,7 @@ if(data.description){
 
 <?js= heading ?>
 
-.. currentmodule:: <?js= data.qualname ?>
+.. currentmodule:: <?js= module ?>
 <?js
 data.members.forEach(function(member){
     print(self.partial('member.tmpl', member))
