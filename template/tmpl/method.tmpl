@@ -6,6 +6,7 @@ var description = obj.description || "";
 var fields = self.partial('fields.tmpl', obj);
 var examples = obj.examples;
 var tabs = 1;
+
 ?>
 
 .. js:function:: <?js= obj.name ?><?js= obj.signature ?>
@@ -13,6 +14,13 @@ var tabs = 1;
 <?js
 if(description){
     print(self.formatTextWithTabs(description, tabs) + '\n\n');
+}
+
+if(notes && notes.length){
+    for (note_id in notes ) {
+        print(self.formatTextWithTabs('.. note::', tabs) + '\n\n');
+        print(self.formatTextWithTabs(notes[note_id], tabs + 1) + '\n\n');
+    };
 }
 
 if(fields){

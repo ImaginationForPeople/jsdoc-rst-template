@@ -130,8 +130,8 @@ exports.publish = function(taffyData, opts, tutorials) {
     var sourceFilePaths = [];
 
      data().each(function(doclet) {
-         //console.log(doclet)
          doclet.attribs = '';
+         doclet.notes = [];
 
         if (doclet.examples) {
             doclet.examples = doclet.examples.map(function(example) {
@@ -148,6 +148,14 @@ exports.publish = function(taffyData, opts, tutorials) {
                     code: code
                 };
             });
+        }
+        if (doclet.tags) {
+            for (tag in doclet.tags) {
+                var tag = doclet.tags[tag];
+                if (tag.title == 'note') {
+                    doclet.notes.push(tag.text);
+                }
+            };
         }
         // if (doclet.see) {
         //     doclet.see.forEach(function(seeItem, i) {
