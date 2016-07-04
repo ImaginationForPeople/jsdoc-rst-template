@@ -1,1 +1,1 @@
-:param <?js= type.names.join('|') ?> <?js= name ?>: <?js= typeof(description) === "undefined" ? "" : description ?>
+:param <?js try {print(type.names.join('|'))} catch (e) {} ?> <?js= name ?>: <?js= typeof(description) === "undefined" ? "" : description ?>
